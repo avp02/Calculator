@@ -1,17 +1,19 @@
-package com.epam.brest.calc.model;
+package com.epam.brest.model;
 
 import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Scanner;
 
-import static com.epam.brest.calc.model.StatusType.*;
+import static com.epam.brest.model.StatusType.*;
 
-public class ReadDataStatus implements Status {
+public class ReadDataStatus extends AbstractStatus {
 
     public static final int NUMBER_OF_USER_DATA = 2;
-    private final Scanner scanner;
 
-    public ReadDataStatus(Scanner scanner) {
+    public ReadDataStatus(Scanner scanner, Map<Integer, BigDecimal> pricePerKgMap, Map<Integer, BigDecimal> pricePerKmMap) {
         this.scanner = scanner;
+        this.pricePerKgMap = pricePerKgMap;
+        this.pricePerKmMap = pricePerKmMap;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class ReadDataStatus implements Status {
                 userData.add(new BigDecimal(inputValue));
             }
         } else {
-            return new CalcStatus(scanner);
+            return new CalcStatus(scanner, pricePerKgMap, pricePerKmMap);
         }
         return this;
     }

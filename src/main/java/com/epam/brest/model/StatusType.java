@@ -1,4 +1,4 @@
-package com.epam.brest.calc.model;
+package com.epam.brest.model;
 
 public enum StatusType {
 

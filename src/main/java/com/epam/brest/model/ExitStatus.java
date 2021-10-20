@@ -1,6 +1,6 @@
-package com.epam.brest.calc.model;
+package com.epam.brest.model;
 
-import static com.epam.brest.calc.model.StatusType.*;
+import static com.epam.brest.model.StatusType.*;
 
 public class ExitStatus implements Status{
 
